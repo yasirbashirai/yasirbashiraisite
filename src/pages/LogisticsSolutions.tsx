@@ -5,6 +5,8 @@ import {
   Send, Phone, ChevronRight, Star, Zap, Clock, TrendingUp, Eye,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import LogisticsVersionSwitcher from "@/components/LogisticsVersionSwitcher";
+import LogisticsPortfolio from "@/components/LogisticsPortfolio";
 
 const CAL_LINK = "https://cal.com/yasir-bashir-bp4wob/30min";
 const WHATSAPP_LINK = "https://wa.me/923446012505?text=Hi%20Yasir%20%E2%80%94%20saw%20your%20Logistics%20Solutions%20page";
@@ -207,6 +209,7 @@ const LogisticsSolutions = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground antialiased">
+      <LogisticsVersionSwitcher />
 
       {/* ============ MINIMAL FUNNEL NAV ============ */}
       <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? "backdrop-blur-2xl bg-background/80 border-b border-primary/20" : ""}`}>
@@ -627,6 +630,9 @@ const LogisticsSolutions = () => {
           </div>
         </div>
       </section>
+
+      {/* ============ PORTFOLIO ============ */}
+      <LogisticsPortfolio variant="grid" sectionNum="§ 05" />
 
       {/* ============ TESTIMONIAL CINEMATIC ============ */}
       <section className="py-24 lg:py-32 bg-card border-y border-primary/15 relative overflow-hidden">

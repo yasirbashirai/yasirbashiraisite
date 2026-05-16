@@ -8,6 +8,9 @@ import Index from "./pages/Index";
 import Calculator from "./pages/Calculator";
 import PortfolioPage from "./pages/PortfolioPage";
 import LogisticsSolutions from "./pages/LogisticsSolutions";
+import LogisticsValue from "./pages/LogisticsValue";
+import LogisticsIndustry from "./pages/LogisticsIndustry";
+import LogisticsSales from "./pages/LogisticsSales";
 import NotFound from "./pages/NotFound";
 import Disclaimer from "./pages/Disclaimer";
 
@@ -25,6 +28,9 @@ const App = () => (
           <Route path="/calculator" element={<Calculator />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/logistics-solutions" element={<LogisticsSolutions />} />
+          <Route path="/logistics-solutions/value" element={<LogisticsValue />} />
+          <Route path="/logistics-solutions/industry" element={<LogisticsIndustry />} />
+          <Route path="/logistics-solutions/sales" element={<LogisticsSales />} />
           <Route path="/disclaimer" element={<Disclaimer />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

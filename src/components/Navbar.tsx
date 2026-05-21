@@ -148,8 +148,8 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center gap-7">
           <a
-            href="/#stats"
-            onClick={(e) => goToSection(e, "#stats")}
+            href="/#about"
+            onClick={(e) => goToSection(e, "#about")}
             className="text-sm text-muted-foreground hover:text-foreground transition-colors font-medium cursor-pointer"
           >
             About
@@ -297,8 +297,8 @@ const Navbar = () => {
       {open && (
         <div className="md:hidden glass-card mx-4 mb-4 p-4 flex flex-col gap-1 max-h-[calc(100vh-6rem)] overflow-y-auto">
           <a
-            href="/#stats"
-            onClick={(e) => goToSection(e, "#stats")}
+            href="/#about"
+            onClick={(e) => goToSection(e, "#about")}
             className="py-2 px-3 text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-muted cursor-pointer"
           >
             About

@@ -24,11 +24,9 @@ const Navbar = () => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "glass-nav" : ""}`}>
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
-          <span className="w-10 h-10 rounded-lg gradient-bg flex items-center justify-center font-heading font-extrabold text-lg text-primary-foreground">
-            YB
-          </span>
-          <span className="font-heading font-bold text-foreground hidden sm:block">Yasir Bashir</span>
+        <Link to="/" className="flex items-center gap-2.5">
+          <img src="/logo.png" alt="Yasir Bashir" className="w-11 h-11 object-contain" />
+          <span className="font-heading font-bold text-lg text-foreground hidden sm:block">Yasir Bashir</span>
         </Link>
 
         <div className="hidden md:flex items-center gap-8">

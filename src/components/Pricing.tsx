@@ -1,84 +1,185 @@
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, Star, Sparkles } from "lucide-react";
 import Section from "./Section";
 
 const packages = [
   {
     name: "AI Starter System",
-    badge: "Most Popular",
+    tagline: "Everything you need to start booking calls on autopilot.",
     setup: "$1,497",
-    monthly: "$497/month",
+    monthly: "$497",
     features: [
-      "Lead capture funnel",
+      "Conversion-engineered landing page",
       "AI chatbot (Web + WhatsApp)",
-      "CRM setup + pipeline",
-      "7-day automated follow-up",
-      "Booking system integration",
+      "CRM + pipeline setup",
+      "7-day automated follow-up flow",
+      "Booking + payment integration",
       "Analytics dashboard",
-      "30-day support",
+      "30-day post-launch support",
     ],
-    cta: "Get Started",
+    cta: "Start with Starter",
     highlight: false,
   },
   {
     name: "Full Growth Engine",
-    badge: "Best Results",
+    tagline: "The complete client-acquisition system, done for you, end to end.",
     setup: "$2,997",
-    monthly: "$997/month",
+    monthly: "$997",
     features: [
       "Everything in Starter, plus:",
-      "Custom web app or landing pages",
-      "Content automation system",
-      "Social media automation",
-      "YouTube + email automation",
-      "Full RevOps system",
-      "Priority support + monthly strategy call",
-      "ROI guarantee",
+      "Multi-page custom website or web app",
+      "Content + social automation system",
+      "Email + SMS nurture sequences",
+      "Full RevOps + reporting stack",
+      "Priority support &amp; monthly strategy call",
+      "30-day ROI guarantee",
     ],
-    cta: "Book Strategy Call",
+    cta: "Book a strategy call",
     highlight: true,
   },
 ];
 
 const Pricing = () => (
-  <Section id="pricing" className="py-20 px-4">
-    <div className="max-w-5xl mx-auto">
-      <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground text-center mb-3">
-        Simple, Transparent Pricing
-      </h2>
-      <p className="text-muted-foreground text-center mb-14">No Hidden Fees. No Surprises.</p>
+  <Section id="pricing" className="py-16 px-4 bg-gradient-to-b from-white via-cream/30 to-white">
+    <div className="max-w-6xl mx-auto">
+      <div className="text-center max-w-3xl mx-auto mb-14">
+        <span className="glass-pill text-xs font-heading font-bold uppercase tracking-widest text-primary mb-4">
+          Investment
+        </span>
+        <h2 className="font-heading font-bold text-3xl md:text-5xl text-foreground mt-5 mb-4 leading-tight">
+          Two ways to <span className="font-serif-italic gradient-text">grow with me</span>.<br className="hidden sm:block" />
+          Zero hidden fees.
+        </h2>
+        <p className="text-muted-foreground text-base md:text-lg">
+          Transparent, outcome-driven pricing. Setup fee + monthly retainer, cancel any time after 90 days.
+        </p>
+      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-10">
         {packages.map((pkg) => (
           <div
             key={pkg.name}
-            className={`glass-card p-8 flex flex-col ${
-              pkg.highlight ? "ring-2 ring-primary" : ""
+            className={`relative flex flex-col p-8 lg:p-10 rounded-3xl transition-all duration-300 ${
+              pkg.highlight
+                ? "gold-border-rounded shadow-card-hover scale-100 md:scale-[1.03]"
+                : "glass-card"
             }`}
-            style={pkg.highlight ? { animation: "pulse-glow 3s ease-in-out infinite" } : undefined}
+            style={
+              pkg.highlight
+                ? {
+                    background:
+                      "linear-gradient(160deg, hsl(var(--primary)) 0%, hsl(var(--primary-dark)) 100%)",
+                    color: "white",
+                  }
+                : undefined
+            }
           >
-            <div className={`inline-block self-start px-3 py-1 rounded-full text-xs font-heading font-bold mb-4 ${
-              pkg.highlight ? "gradient-bg text-primary-foreground" : "bg-muted text-muted-foreground"
-            }`}>
-              {pkg.badge}
+            {pkg.highlight && (
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+                <div className="gold-border-rounded px-4 py-1.5 inline-flex items-center gap-1.5 text-xs font-heading font-extrabold uppercase tracking-widest bg-white">
+                  <Star className="w-3.5 h-3.5 text-gold fill-current" />
+                  <span className="gold-text">Most Popular</span>
+                </div>
+              </div>
+            )}
+
+            <div className="mb-2">
+              <span
+                className={`inline-flex items-center gap-1.5 text-[11px] font-heading font-bold uppercase tracking-widest px-3 py-1 rounded-full ${
+                  pkg.highlight
+                    ? "bg-white/15 text-white"
+                    : "bg-primary-soft text-primary"
+                }`}
+              >
+                {pkg.highlight ? <Sparkles className="w-3 h-3" /> : <Sparkles className="w-3 h-3" />}
+                {pkg.highlight ? "Best Outcome" : "Quick Launch"}
+              </span>
             </div>
 
-            <h3 className="font-heading font-extrabold text-2xl text-foreground mb-2">{pkg.name}</h3>
-            <div className="mb-6">
-              <span className="font-heading font-extrabold text-4xl gradient-text">{pkg.setup}</span>
-              <span className="text-muted-foreground text-sm ml-2">one-time</span>
-              <p className="text-muted-foreground text-sm mt-1">+ {pkg.monthly} retainer</p>
+            <h3
+              className={`font-heading font-extrabold text-3xl md:text-4xl mb-2 ${
+                pkg.highlight ? "text-white" : "text-foreground"
+              }`}
+            >
+              {pkg.name}
+            </h3>
+            <p
+              className={`text-sm md:text-base leading-relaxed mb-6 ${
+                pkg.highlight ? "text-white/80" : "text-muted-foreground"
+              }`}
+            >
+              {pkg.tagline}
+            </p>
+
+            {/* Price */}
+            <div
+              className={`flex items-baseline gap-2 mb-1 ${
+                pkg.highlight ? "" : ""
+              }`}
+            >
+              <span
+                className={`font-heading font-extrabold text-5xl md:text-6xl tracking-tight ${
+                  pkg.highlight ? "text-white" : "gradient-text"
+                }`}
+              >
+                {pkg.setup}
+              </span>
+              <span
+                className={`text-sm font-medium ${
+                  pkg.highlight ? "text-white/70" : "text-muted-foreground"
+                }`}
+              >
+                one-time
+              </span>
             </div>
+            <div
+              className={`flex items-center gap-2 mb-7 text-sm ${
+                pkg.highlight ? "text-white/70" : "text-muted-foreground"
+              }`}
+            >
+              <span className="font-heading font-bold">+ {pkg.monthly}/mo</span>
+              <span>retainer (90-day min)</span>
+            </div>
+
+            <div
+              className={`h-px w-full mb-6 ${
+                pkg.highlight ? "bg-white/20" : "bg-border"
+              }`}
+            />
 
             <ul className="space-y-3 mb-8 flex-1">
               {pkg.features.map((f) => (
-                <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
-                  <Check className="w-4 h-4 text-success shrink-0 mt-0.5" />
-                  <span>{f}</span>
+                <li
+                  key={f}
+                  className={`flex items-start gap-3 text-sm leading-relaxed ${
+                    pkg.highlight ? "text-white/90" : "text-foreground"
+                  }`}
+                >
+                  <span
+                    className={`mt-0.5 w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${
+                      pkg.highlight ? "bg-white/15" : "bg-primary-soft"
+                    }`}
+                  >
+                    <Check
+                      className={`w-3 h-3 ${
+                        pkg.highlight ? "text-white" : "text-primary"
+                      }`}
+                    />
+                  </span>
+                  <span dangerouslySetInnerHTML={{ __html: f }} />
                 </li>
               ))}
             </ul>
 
-            <a href="https://cal.com/yasir-bashir-bp4wob/30min" target="_blank" rel="noopener noreferrer" className={pkg.highlight ? "btn-gradient justify-center" : "btn-glass justify-center"}>
+            <a
+              href="https://cal.com/yasir-bashir-bp4wob/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={
+                pkg.highlight
+                  ? "inline-flex items-center justify-center gap-2 bg-white text-primary font-heading font-bold text-sm rounded-full px-6 py-3.5 hover:scale-[1.02] transition shadow-gold-glow"
+                  : "btn-primary justify-center"
+              }
+            >
               {pkg.cta} <ArrowRight className="w-4 h-4 btn-icon" />
             </a>
           </div>
@@ -86,7 +187,7 @@ const Pricing = () => (
       </div>
 
       <p className="text-center text-muted-foreground text-sm">
-        Not sure which plan? <a href="https://cal.com/yasir-bashir-bp4wob/30min" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">Book a FREE 30-min AI Audit call</a> and I'll tell you exactly what you need.
+        Not sure which fits? <a href="https://cal.com/yasir-bashir-bp4wob/30min" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">Book a free 1:1 audit call</a>, I&apos;ll tell you the smallest spend that will move your number.
       </p>
     </div>
   </Section>

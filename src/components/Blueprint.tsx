@@ -1,98 +1,171 @@
-import { ArrowRight, ArrowDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Section from "./Section";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const steps = [
   {
     num: "01",
-    icon: "🎨",
-    title: "DESIGN",
-    desc: "We start by mapping your complete business system. Understanding your offer, your audience, and where the gaps are costing you money. No guessing — just clarity.",
-    details: ["Business System Mapping", "Revenue Gap Analysis", "Audience Deep-Dive", "Growth Blueprint"],
+    icon: "🔍",
+    title: "Strategy & Discovery",
+    tagline: "Video call, business audit & competitor scan.",
+    variant: "primary" as const,
   },
   {
     num: "02",
-    icon: "🔨",
-    title: "BUILD",
-    desc: "We build your complete tech stack — website, funnels, CRM, automations, chatbots. Everything connected. Everything tested. Built to convert from day one.",
-    details: ["Website & Funnels", "CRM & Pipelines", "AI Chatbots", "Payment Systems"],
+    icon: "🎨",
+    title: "Design Foundation",
+    tagline: "Wireframes, copy direction & UX architecture.",
+    variant: "white" as const,
   },
   {
     num: "03",
     icon: "⚙️",
-    title: "AUTOMATE",
-    desc: "We automate your lead generation, follow-ups, content, bookings, and operations. Your business starts running 24/7 without you doing the manual work.",
-    details: ["Lead Automation", "Follow-up Sequences", "Content Systems", "Booking Automation"],
+    title: "Build & Launch",
+    tagline: "Mobile-first build, on-page SEO, fast load.",
+    variant: "primary" as const,
   },
   {
     num: "04",
+    icon: "🤖",
+    title: "AI Automation",
+    tagline: "CRM, chatbot, follow-ups, payments wired in.",
+    variant: "white" as const,
+  },
+  {
+    num: "05",
     icon: "🚀",
-    title: "SCALE",
-    desc: "With systems running, we optimize, expand, and scale. More leads, more bookings, more revenue — with less of your time. Growth becomes predictable.",
-    details: ["Performance Optimization", "Revenue Scaling", "Multi-Channel Expansion", "ROI Tracking"],
+    title: "Growth & Scaling",
+    tagline: "A/B tests, SEO, ads, monthly optimisation.",
+    variant: "primary" as const,
+    isFinale: true,
   },
 ];
 
-const Blueprint = () => (
-  <Section id="process" className="py-20 px-4">
-    <div className="max-w-4xl mx-auto">
-      <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground text-center mb-3">
-        My Proven 4-Step Blueprint <span className="gradient-text">For Business Growth</span>
-      </h2>
-      <p className="text-muted-foreground text-center mb-14">
-        800+ businesses transformed using this exact system
-      </p>
+type Step = typeof steps[number];
 
-      {/* Vertical timeline */}
-      <div className="relative">
-        {/* Center line */}
-        <div className="absolute left-6 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 gradient-bg opacity-30" />
+const StepCard = ({ step, index }: { step: Step; index: number }) => {
+  const { ref, isVisible } = useScrollReveal(0.2);
+  const isOdd = index % 2 === 0;
+  const isPrimary = step.variant === "primary";
+  const cascadeDelay = `${index * 110}ms`;
 
-        {steps.map((s, i) => (
-          <div key={s.num} className="relative mb-8 last:mb-0">
-            {/* Connector arrow */}
-            {i < steps.length - 1 && (
-              <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 bottom-0 translate-y-full z-10 text-primary">
-                <ArrowDown className="w-5 h-5 animate-bounce" />
-              </div>
-            )}
-
-            <div className={`flex flex-col md:flex-row items-start gap-4 md:gap-8 ${
-              i % 2 === 1 ? "md:flex-row-reverse" : ""
-            }`}>
-              {/* Number node */}
-              <div className="flex items-center gap-4 md:w-1/2 md:justify-end relative z-10">
-                {i % 2 === 0 && (
-                  <div className="hidden md:block flex-1" />
-                )}
-                <div className="w-14 h-14 rounded-full gradient-bg flex items-center justify-center font-heading font-extrabold text-lg text-primary-foreground shrink-0 shadow-lg shadow-primary/30">
-                  {s.num}
-                </div>
-                {i % 2 === 1 && (
-                  <div className="hidden md:block flex-1" />
-                )}
-              </div>
-
-              {/* Content card */}
-              <div className="glass-card p-6 md:w-1/2 ml-14 md:ml-0">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-3xl">{s.icon}</span>
-                  <h3 className="font-heading font-extrabold text-2xl text-foreground">{s.title}</h3>
-                </div>
-                <p className="text-muted-foreground leading-relaxed mb-4">{s.desc}</p>
-                <div className="flex flex-wrap gap-2">
-                  {s.details.map((d) => (
-                    <span key={d} className="glass-pill text-xs py-1 px-3">{d}</span>
-                  ))}
-                </div>
-              </div>
+  return (
+    <div
+      ref={ref}
+      className={`relative transition-all duration-700 ${
+        isVisible ? "opacity-100" : "opacity-0"
+      }`}
+      style={{
+        transitionDelay: cascadeDelay,
+        transform: isVisible
+          ? `translateY(${isOdd ? "0" : "2.5rem"})`
+          : `translateY(${isOdd ? "1rem" : "3.5rem"})`,
+      }}
+    >
+      <div
+        className={`relative rounded-2xl p-5 md:p-6 grain-bg border transition-all duration-300 hover:-translate-y-1 overflow-hidden ${
+          isPrimary
+            ? "border-transparent shadow-card-hover"
+            : "border-primary/15 shadow-card bg-white"
+        }`}
+        style={
+          isPrimary
+            ? {
+                background:
+                  "linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%)",
+                color: "white",
+              }
+            : undefined
+        }
+      >
+        {step.isFinale && (
+          <>
+            <div className="absolute -top-3 left-4 px-2.5 py-0.5 rounded-full text-[10px] font-heading font-bold uppercase tracking-widest bg-gold-light text-foreground shadow-gold-glow z-10">
+              FINALE
             </div>
+            <div className="absolute -bottom-6 -right-6 w-24 h-24 rounded-full bg-gold-light/30 blur-2xl pointer-events-none" />
+          </>
+        )}
+        {isPrimary && !step.isFinale && (
+          <div className="absolute -top-6 -right-6 w-20 h-20 rounded-full bg-gold-light/25 blur-2xl pointer-events-none" />
+        )}
+
+        <div className="flex items-center gap-3 mb-3 relative z-10">
+          <div
+            className={`icon-box icon-box-sm text-xl shrink-0 ${
+              isPrimary ? "!bg-white/20 !border-white/30" : ""
+            }`}
+          >
+            <span style={isPrimary ? { color: "white" } : undefined}>{step.icon}</span>
           </div>
+          <span
+            className={`font-heading font-extrabold text-2xl md:text-3xl tracking-tight leading-none ${
+              isPrimary ? "text-white/90" : "gradient-text"
+            }`}
+          >
+            {step.num}
+          </span>
+        </div>
+        <h3
+          className={`font-heading font-bold text-base md:text-lg leading-snug mb-1.5 relative z-10 ${
+            isPrimary ? "text-white" : "text-foreground"
+          }`}
+        >
+          {step.title}
+        </h3>
+        <p
+          className={`text-sm leading-relaxed relative z-10 ${
+            isPrimary ? "text-white/85" : "text-foreground/70"
+          }`}
+        >
+          {step.tagline}
+        </p>
+      </div>
+    </div>
+  );
+};
+
+const Blueprint = () => (
+  <Section id="process" className="py-14 md:py-16 px-4 relative">
+    <div className="max-w-7xl mx-auto">
+      <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
+        <span className="glass-pill text-sm font-heading font-bold uppercase tracking-widest text-primary mb-4">
+          The Process
+        </span>
+        <h2 className="font-heading font-bold text-3xl md:text-5xl text-foreground mt-4 mb-3 leading-tight">
+          A <span className="font-serif-italic gradient-text">5-step climb</span> from idea to compounding growth.
+        </h2>
+        <p className="text-foreground/75 text-base md:text-lg">
+          The same playbook we&apos;ve run across 800+ projects.
+        </p>
+      </div>
+
+      {/* Desktop horizontal zigzag, fits in one view */}
+      <div className="hidden md:block relative">
+        <div className="grid grid-cols-5 gap-4 lg:gap-6 items-start">
+          {steps.map((s, i) => (
+            <StepCard key={s.num} step={s} index={i} />
+          ))}
+        </div>
+      </div>
+
+      {/* Mobile: stacked */}
+      <div className="md:hidden space-y-3">
+        {steps.map((s, i) => (
+          <StepCard key={s.num} step={s} index={i} />
         ))}
       </div>
 
-      <div className="text-center mt-12">
-        <a href="https://cal.com/yasir-bashir-bp4wob/30min" target="_blank" rel="noopener noreferrer" className="btn-gradient text-base">
-          Start My Blueprint <ArrowRight className="w-4 h-4 btn-icon" />
+      <div className="text-center mt-10 md:mt-14">
+        <a
+          href="https://cal.com/yasir-bashir-bp4wob/30min"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hero-cta-primary inline-block"
+        >
+          <span className="hero-cta-inner">
+            Start at Step 1 <ArrowRight className="w-4 h-4 btn-icon" />
+          </span>
         </a>
       </div>
     </div>

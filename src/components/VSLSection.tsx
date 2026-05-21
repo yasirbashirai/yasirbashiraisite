@@ -30,13 +30,23 @@ const VSLSection = () => {
           {/* Navigation arrows */}
           <button
             onClick={prev}
-            className="absolute left-0 md:-left-14 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full glass-card flex items-center justify-center text-foreground hover:text-primary hover:scale-110 transition-all cursor-pointer"
+            aria-label="Previous video"
+            className="absolute left-1 md:-left-14 top-1/2 -translate-y-1/2 z-20 w-11 h-11 md:w-12 md:h-12 rounded-full flex items-center justify-center text-white hover:scale-110 transition-all cursor-pointer shadow-card-hover ring-2 ring-gold-light/40"
+            style={{
+              background:
+                "linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%)",
+            }}
           >
             <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
           </button>
           <button
             onClick={next}
-            className="absolute right-0 md:-right-14 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full glass-card flex items-center justify-center text-foreground hover:text-primary hover:scale-110 transition-all cursor-pointer"
+            aria-label="Next video"
+            className="absolute right-1 md:-right-14 top-1/2 -translate-y-1/2 z-20 w-11 h-11 md:w-12 md:h-12 rounded-full flex items-center justify-center text-white hover:scale-110 transition-all cursor-pointer shadow-card-hover ring-2 ring-gold-light/40"
+            style={{
+              background:
+                "linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%)",
+            }}
           >
             <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
           </button>

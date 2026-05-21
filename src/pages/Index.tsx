@@ -7,6 +7,7 @@ import RealityCheck from "@/components/RealityCheck";
 import ServicesGrid from "@/components/ServicesGrid";
 import StrugglesVsSolutions from "@/components/StrugglesVsSolutions";
 import Blueprint from "@/components/Blueprint";
+import GrowthFunnel from "@/components/GrowthFunnel";
 import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing";
 import FAQSection from "@/components/FAQSection";
@@ -18,10 +19,21 @@ import FloatingSocials from "@/components/FloatingSocials";
 import WhatsAppChatbot from "@/components/WhatsAppChatbot";
 import IncomingCallPopup from "@/components/IncomingCallPopup";
 
+const ambientIcons = ["🤖", "⚙️", "🧠", "💡", "📊", "🔗", "🚀", "💬", "📧", "🎯"];
+
 const Index = () => (
   <div className="min-h-screen relative">
     {/* Grid + glow background */}
     <div className="grid-background" aria-hidden="true" />
+
+    {/* Ambient floating icons across all sections */}
+    <div className="floating-icons-fixed" aria-hidden="true">
+      {ambientIcons.map((icon, i) => (
+        <span key={i} className={`floating-icon floating-icon-${i}`}>
+          {icon}
+        </span>
+      ))}
+    </div>
 
     <Navbar />
     <FloatingSocials />
@@ -37,6 +49,7 @@ const Index = () => (
       <CalculatorCTA />
       <StrugglesVsSolutions />
       <Blueprint />
+      <GrowthFunnel />
       <Testimonials />
       <Pricing />
       <FAQSection />

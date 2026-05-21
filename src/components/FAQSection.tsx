@@ -26,12 +26,12 @@ const faqs = [
   {
     icon: "🛡️",
     q: "What if the system doesn't work for my business?",
-    a: "I guarantee results for clients who implement the systems I build. If it doesn't perform as agreed, I fix it — free of charge, no questions asked.",
+    a: "I guarantee results for clients who implement the systems I build. If it doesn't perform as agreed, I fix it, free of charge, no questions asked.",
   },
   {
     icon: "🚀",
     q: "How do I get started?",
-    a: "Book a free 30-minute AI Audit call. I'll analyze your business, identify the biggest automation opportunities, and give you a clear plan — even if you don't work with me after.",
+    a: "Book a free 30-minute AI Audit call. I'll analyze your business, identify the biggest automation opportunities, and give you a clear plan, even if you don't work with me after.",
   },
 ];
 
@@ -97,7 +97,7 @@ const FAQSection = () => {
           <p className="text-muted-foreground mb-4">Still have questions?</p>
           <a href="https://cal.com/yasir-bashir-bp4wob/30min" target="_blank" rel="noopener noreferrer" className="btn-gradient text-base">
             <Zap className="w-4 h-4" />
-            Book a Free Call — I'll Answer Everything
+            Book a Free Call, I'll Answer Everything
             <ArrowRight className="w-4 h-4 btn-icon" />
           </a>
         </div>

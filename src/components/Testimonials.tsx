@@ -3,8 +3,8 @@ import Section from "./Section";
 const testimonials = [
   { name: "James R.", role: "Moving Company Owner", platform: "Fiverr", text: "Yasir automated our entire lead follow-up. We went from missing 60% of inquiries to booking every single one automatically. ROI in the first week." },
   { name: "Sarah M.", role: "Med Spa Owner", platform: "Upwork", text: "Best investment we made. Yasir built our entire CRM + funnel in days. We're now generating leads while we sleep." },
-  { name: "Ahmed K.", role: "E-commerce Brand", platform: "Fiverr", text: "The AI chatbot he built handles our customer support 24/7. Saved us $3K/month in staff costs immediately." },
-  { name: "Michael T.", role: "Agency Owner", platform: "LinkedIn", text: "Yasir is not just a developer — he's a strategic partner. His systems thinking is on another level." },
+  { name: "Ahmed K.", role: "E-commerce Owner", platform: "Fiverr", text: "The AI chatbot he built handles our customer support 24/7. Saved us $3K/month in staff costs immediately." },
+  { name: "Michael T.", role: "Agency Owner", platform: "LinkedIn", text: "Yasir is not just a developer, he's a strategic partner. His systems thinking is on another level." },
   { name: "Lisa P.", role: "SaaS Founder", platform: "Upwork", text: "We launched our SaaS MVP in 2 weeks. Can't believe the quality and speed. Will never work with anyone else." },
   { name: "David O.", role: "Transport Company", platform: "Fiverr", text: "The n8n automation he built saves our team 40+ hours every week. Absolutely game-changing." },
 ];
@@ -41,14 +41,19 @@ const ScrollColumn = ({ items, direction }: { items: typeof testimonials; direct
 );
 
 const Testimonials = () => (
-  <Section id="testimonials" className="py-20 px-4">
+  <Section id="testimonials" className="py-16 px-4 bg-gradient-to-b from-white via-cream/40 to-white">
     <div className="max-w-6xl mx-auto">
-      <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground text-center mb-4">
-        What Clients Say About <span className="gradient-text">Working With Yasir</span>
-      </h2>
-      <p className="text-muted-foreground text-center mb-12">
-        Real results from real businesses. No fluff.
-      </p>
+      <div className="text-center max-w-3xl mx-auto mb-12">
+        <span className="glass-pill text-xs font-heading font-bold uppercase tracking-widest text-primary mb-4">
+          Receipts
+        </span>
+        <h2 className="font-heading font-bold text-3xl md:text-5xl text-foreground mt-5 mb-3 leading-tight">
+          Trusted by <span className="font-serif-italic gradient-text">300+ businesses</span> across logistics, SaaS &amp; coaching.
+        </h2>
+        <p className="text-muted-foreground text-base md:text-lg">
+          Real names, real businesses, real numbers, no stock photos.
+        </p>
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <ScrollColumn items={col1} direction="up" />

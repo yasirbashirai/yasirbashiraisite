@@ -12,13 +12,13 @@ const items = [
 ];
 
 const stressData: Record<number, { emoji: string; face: string; message: string }> = {
-  0: { emoji: "😎", face: "Chill", message: "You're Chill — But let's keep it that way" },
-  1: { emoji: "🙂", face: "Okay", message: "Looking okay — But there's room to improve" },
-  2: { emoji: "😐", face: "Hmm", message: "Mild Stress — Time to build systems" },
-  3: { emoji: "😟", face: "Worried", message: "Getting Serious — You need automation" },
-  4: { emoji: "😰", face: "Stressed", message: "High Stress — Action Needed NOW!" },
-  5: { emoji: "🤯", face: "Overwhelmed", message: "CRITICAL — Your business is bleeding!" },
-  6: { emoji: "🚨", face: "DANGER", message: "🚨 DANGER — Book a call RIGHT NOW!" },
+  0: { emoji: "😎", face: "Chill", message: "You're Chill, But let's keep it that way" },
+  1: { emoji: "🙂", face: "Okay", message: "Looking okay, But there's room to improve" },
+  2: { emoji: "😐", face: "Hmm", message: "Mild Stress, Time to build systems" },
+  3: { emoji: "😟", face: "Worried", message: "Getting Serious, You need automation" },
+  4: { emoji: "😰", face: "Stressed", message: "High Stress, Action Needed NOW!" },
+  5: { emoji: "🤯", face: "Overwhelmed", message: "CRITICAL, Your business is bleeding!" },
+  6: { emoji: "🚨", face: "DANGER", message: "🚨 DANGER, Book a call RIGHT NOW!" },
 };
 
 const RealityCheck = () => {
@@ -101,9 +101,17 @@ const RealityCheck = () => {
           </div>
         </div>
 
-        <div className="text-center mt-8">
-          <a href="https://cal.com/yasir-bashir-bp4wob/30min" target="_blank" rel="noopener noreferrer" className="btn-gradient text-base">
-            Fix This With a Free AI Audit <ArrowRight className="w-4 h-4 btn-icon" />
+        <div className="text-center mt-10">
+          <a
+            href="https://cal.com/yasir-bashir-bp4wob/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hero-cta-primary inline-block"
+          >
+            <span className="hero-cta-inner">
+              Fix this with a free audit
+              <ArrowRight className="w-4 h-4 btn-icon" />
+            </span>
           </a>
         </div>
       </div>

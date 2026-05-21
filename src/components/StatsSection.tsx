@@ -49,16 +49,13 @@ const CountUp = ({ target, suffix }: { target: number; suffix: string }) => {
 };
 
 const StatsSection = () => (
-  <Section id="stats" className="py-20 px-4">
+  <Section id="stats" className="py-12 px-4">
     <div className="max-w-6xl mx-auto">
-      <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground text-center mb-14">
-        Results That Speak For Themselves
-      </h2>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
         {stats.map((s) => (
           <div key={s.label} className="glass-card p-6 md:p-8 text-center flex flex-col items-center gap-3">
             <CountUp target={s.target} suffix={s.suffix} />
-            <span className="text-muted-foreground text-sm md:text-base">{s.label}</span>
+            <span className="text-foreground/80 text-sm md:text-base font-medium">{s.label}</span>
           </div>
         ))}
       </div>

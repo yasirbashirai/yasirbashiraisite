@@ -15,10 +15,16 @@ const FloatingSocials = () => (
         href={s.href}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-11 h-11 rounded-full glass-card flex items-center justify-center text-muted-foreground hover:text-primary hover:scale-110 transition-all"
+        className="w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-soft"
+        style={{
+          background:
+            "linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%)",
+          color: "hsl(var(--secondary))",
+          border: "1.5px solid hsla(43, 90%, 60%, 0.45)",
+        }}
         aria-label={s.label}
       >
-        <s.icon size={18} />
+        <s.icon size={20} />
       </a>
     ))}
   </div>

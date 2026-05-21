@@ -1,5 +1,6 @@
-import { ArrowRight, Check, Star, Sparkles } from "lucide-react";
+import { ArrowRight, Check, Sparkles } from "lucide-react";
 import Section from "./Section";
+import AiSparkle from "./AiSparkle";
 
 const packages = [
   {
@@ -75,9 +76,9 @@ const Pricing = () => (
           >
             {pkg.highlight && (
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-                <div className="gold-border-rounded px-4 py-1.5 inline-flex items-center gap-1.5 text-xs font-heading font-extrabold uppercase tracking-widest bg-white">
-                  <Star className="w-3.5 h-3.5 text-gold fill-current" />
-                  <span className="gold-text">Most Popular</span>
+                <div className="gold-border-rounded px-4 py-1.5 inline-flex items-center gap-1.5 text-xs font-heading font-extrabold uppercase tracking-widest bg-white shadow-gold-glow">
+                  <AiSparkle size={14} className="text-gold" />
+                  <span className="text-foreground">Most Popular</span>
                 </div>
               </div>
             )}

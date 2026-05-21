@@ -1,4 +1,5 @@
 import { ArrowRight, Calendar } from "lucide-react";
+import AiSparkle from "./AiSparkle";
 
 const servicePills = [
   { icon: "⚡", label: "Web Apps" },
@@ -46,7 +47,7 @@ const Hero = () => (
 
     {/* AI-first status pill */}
     <div className="relative z-10 mb-3 inline-flex items-center gap-1.5 text-[10px] sm:text-xs uppercase tracking-[0.2em] font-heading font-bold text-primary">
-      <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+      <AiSparkle size={14} />
       AI-First · 2026
     </div>
 
@@ -101,7 +102,7 @@ const Hero = () => (
         className="hero-cta-primary"
       >
         <span className="hero-cta-inner">
-          <Calendar className="w-5 h-5" />
+          <AiSparkle size={18} />
           Schedule a 1:1 call
           <ArrowRight className="w-4 h-4 btn-icon" />
         </span>

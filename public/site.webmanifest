@@ -1,0 +1,26 @@
+{
+  "name": "Yasir Bashir — AI Automation Engineer",
+  "short_name": "Yasir Bashir",
+  "description": "AI-first websites, automation systems and growth funnels for ambitious founders & agencies.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#288672",
+  "orientation": "portrait",
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

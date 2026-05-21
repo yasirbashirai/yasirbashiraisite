@@ -1,3 +1,4 @@
+import { useDocumentMeta } from "@/hooks/useDocumentMeta";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import VSLSection from "@/components/VSLSection";
@@ -22,7 +23,14 @@ import IncomingCallPopup from "@/components/IncomingCallPopup";
 
 const ambientIcons = ["🤖", "⚙️", "🧠", "💡", "📊", "🔗", "🚀", "💬", "📧", "🎯"];
 
-const Index = () => (
+const Index = () => {
+  useDocumentMeta({
+    title: "Yasir Bashir — AI Automation Engineer & Web App Builder",
+    description:
+      "AI-first websites, automation systems and growth funnels for ambitious founders & agencies. n8n, GoHighLevel, OpenAI & Claude APIs. Book a free 1:1 strategy call.",
+    canonical: "https://yasirbashir.com/",
+  });
+  return (
   <div className="min-h-screen relative">
     {/* Grid + glow background */}
     <div className="grid-background" aria-hidden="true" />
@@ -60,6 +68,7 @@ const Index = () => (
     </main>
     <Footer />
   </div>
-);
+  );
+};
 
 export default Index;

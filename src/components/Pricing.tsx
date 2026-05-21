@@ -54,7 +54,7 @@ const Pricing = () => (
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-6 lg:gap-8 mb-10">
         {packages.map((pkg) => (
           <div
             key={pkg.name}

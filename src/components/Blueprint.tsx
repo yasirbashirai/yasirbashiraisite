@@ -49,18 +49,16 @@ const StepCard = ({ step, index }: { step: Step; index: number }) => {
   const isPrimary = step.variant === "primary";
   const cascadeDelay = `${index * 110}ms`;
 
+  // Zigzag offset is desktop-only (md+). On mobile, cards stack cleanly.
+  const zigzagClass = isOdd ? "" : "md:translate-y-10";
+
   return (
     <div
       ref={ref}
-      className={`relative transition-all duration-700 ${
+      className={`relative transition-opacity duration-700 ${zigzagClass} ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
-      style={{
-        transitionDelay: cascadeDelay,
-        transform: isVisible
-          ? `translateY(${isOdd ? "0" : "2.5rem"})`
-          : `translateY(${isOdd ? "1rem" : "3.5rem"})`,
-      }}
+      style={{ transitionDelay: cascadeDelay }}
     >
       <div
         className={`relative rounded-2xl p-5 md:p-6 grain-bg border transition-all duration-300 hover:-translate-y-1 overflow-hidden ${

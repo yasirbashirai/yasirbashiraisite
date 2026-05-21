@@ -2,12 +2,12 @@ import { ArrowRight, Phone, MessageCircle, Linkedin } from "lucide-react";
 import Section from "./Section";
 
 const FinalCTA = () => (
-  <Section id="contact" className="py-20 px-4 relative">
+  <Section id="contact" className="py-16 md:py-20 px-3 sm:px-4 relative">
     <div className="max-w-6xl mx-auto">
       {/* Gold-bordered outer wrap */}
-      <div className="relative p-[2.5px] rounded-[2rem] bg-gold-gradient shadow-gold-glow">
+      <div className="relative p-[2.5px] rounded-[1.6rem] md:rounded-[2rem] bg-gold-gradient shadow-gold-glow">
         <div
-          className="relative overflow-hidden rounded-[1.9rem] p-10 md:p-14 lg:p-16"
+          className="relative overflow-hidden rounded-[1.5rem] md:rounded-[1.9rem] p-5 sm:p-8 md:p-14 lg:p-16"
           style={{
             background:
               "linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%)",
@@ -31,8 +31,8 @@ const FinalCTA = () => (
             {/* 2-card grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 max-w-4xl mx-auto">
               {/* Card 1, Book a call */}
-              <div className="relative bg-white rounded-3xl p-8 text-center shadow-card-hover border border-white/40">
-                <div className="absolute inset-0 grain-bg opacity-30 rounded-3xl pointer-events-none" />
+              <div className="relative bg-white rounded-2xl md:rounded-3xl p-5 sm:p-7 md:p-8 text-center shadow-card-hover border border-white/40">
+                <div className="absolute inset-0 grain-bg opacity-30 rounded-2xl md:rounded-3xl pointer-events-none" />
                 <div className="relative z-10">
                   <div className="icon-box icon-box-lg mx-auto mb-5">
                     <Phone className="w-7 h-7" />
@@ -58,8 +58,8 @@ const FinalCTA = () => (
               </div>
 
               {/* Card 2, Direct message */}
-              <div className="relative bg-white rounded-3xl p-8 text-center shadow-card-hover border border-white/40">
-                <div className="absolute inset-0 grain-bg opacity-30 rounded-3xl pointer-events-none" />
+              <div className="relative bg-white rounded-2xl md:rounded-3xl p-5 sm:p-7 md:p-8 text-center shadow-card-hover border border-white/40">
+                <div className="absolute inset-0 grain-bg opacity-30 rounded-2xl md:rounded-3xl pointer-events-none" />
                 <div className="relative z-10">
                   <div className="icon-box icon-box-lg mx-auto mb-5">
                     <MessageCircle className="w-7 h-7" />
@@ -70,22 +70,22 @@ const FinalCTA = () => (
                   <p className="text-base text-foreground/75 mb-6 leading-relaxed">
                     DM &quot;SYSTEM&quot; on LinkedIn or WhatsApp and I&apos;ll reply within 24 hours.
                   </p>
-                  <div className="flex gap-3">
+                  <div className="flex gap-2 sm:gap-3 w-full">
                     <a
                       href="https://www.linkedin.com/in/yasirbashiraiengineer/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 inline-flex items-center justify-center gap-2 bg-primary-soft border border-primary/30 text-primary font-heading font-bold text-sm rounded-full px-4 py-3 hover:bg-primary hover:text-white transition"
+                      className="flex-1 min-w-0 inline-flex items-center justify-center gap-1.5 bg-primary-soft border border-primary/30 text-primary font-heading font-bold text-sm rounded-full px-2 sm:px-4 py-2.5 sm:py-3 hover:bg-primary hover:text-white transition"
                     >
-                      <Linkedin className="w-4 h-4" /> LinkedIn
+                      <Linkedin className="w-4 h-4 shrink-0" /> LinkedIn
                     </a>
                     <a
                       href="https://wa.me/923446012505"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 inline-flex items-center justify-center gap-2 bg-primary-soft border border-primary/30 text-primary font-heading font-bold text-sm rounded-full px-4 py-3 hover:bg-primary hover:text-white transition"
+                      className="flex-1 min-w-0 inline-flex items-center justify-center gap-1.5 bg-primary-soft border border-primary/30 text-primary font-heading font-bold text-sm rounded-full px-2 sm:px-4 py-2.5 sm:py-3 hover:bg-primary hover:text-white transition"
                     >
-                      <MessageCircle className="w-4 h-4" /> WhatsApp
+                      <MessageCircle className="w-4 h-4 shrink-0" /> WhatsApp
                     </a>
                   </div>
                 </div>

@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import VSLSection from "@/components/VSLSection";
+import AboutMe from "@/components/AboutMe";
 import StatsSection from "@/components/StatsSection";
 import ToolCarousel from "@/components/ToolCarousel";
 import RealityCheck from "@/components/RealityCheck";
@@ -42,6 +43,7 @@ const Index = () => (
     <main className="relative z-10">
       <Hero />
       <VSLSection />
+      <AboutMe />
       <StatsSection />
       <ToolCarousel />
       <RealityCheck />

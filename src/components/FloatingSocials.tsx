@@ -1,7 +1,8 @@
-import { Github, Linkedin, Facebook, Youtube } from "lucide-react";
+import { Github, Linkedin, Facebook, Youtube, Instagram } from "lucide-react";
 
 const socials = [
   { icon: Linkedin, href: "https://www.linkedin.com/in/yasirbashiraiengineer/", label: "LinkedIn" },
+  { icon: Instagram, href: "https://www.instagram.com/yasirbhatti.331/", label: "Instagram" },
   { icon: Github, href: "https://github.com/yasirbashirai", label: "GitHub" },
   { icon: Facebook, href: "https://web.facebook.com/yasirprodev/", label: "Facebook" },
   { icon: Youtube, href: "https://www.youtube.com/@YasirBashirai", label: "YouTube" },

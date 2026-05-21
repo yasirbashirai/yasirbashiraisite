@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
-import { Github, Linkedin, Facebook, Youtube, Mail, Phone } from "lucide-react";
+import { Github, Linkedin, Facebook, Youtube, Instagram, Mail, Phone } from "lucide-react";
 import fiverrLogo from "@/assets/fiverr-logo.png";
 import upworkLogo from "@/assets/upwork-logo.png";
 import payoneerLogo from "@/assets/payoneer-logo.png";
 import wiseLogo from "@/assets/wise-logo.png";
 
 const socials = [
-  { icon: Github, href: "https://github.com/yasirbashirai" },
   { icon: Linkedin, href: "https://www.linkedin.com/in/yasirbashiraiengineer/" },
+  { icon: Instagram, href: "https://www.instagram.com/yasirbhatti.331/" },
+  { icon: Github, href: "https://github.com/yasirbashirai" },
   { icon: Facebook, href: "https://web.facebook.com/yasirprodev/" },
   { icon: Youtube, href: "https://www.youtube.com/@YasirBashirai" },
 ];

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowRight, Linkedin, Github, Facebook, Youtube, MessageCircle } from "lucide-react";
+import { ArrowRight, Linkedin, Github, Facebook, Youtube, Instagram, MessageCircle } from "lucide-react";
 import AiSparkle from "./AiSparkle";
 
 const photos = [
@@ -12,6 +12,7 @@ const photos = [
 
 const socials = [
   { icon: Linkedin, href: "https://www.linkedin.com/in/yasirbashiraiengineer/", label: "LinkedIn" },
+  { icon: Instagram, href: "https://www.instagram.com/yasirbhatti.331/", label: "Instagram" },
   { icon: Github, href: "https://github.com/yasirbashirai", label: "GitHub" },
   { icon: Facebook, href: "https://web.facebook.com/yasirprodev/", label: "Facebook" },
   { icon: Youtube, href: "https://www.youtube.com/@YasirBashirai", label: "YouTube" },

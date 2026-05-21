@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { X, Send } from "lucide-react";
 
 const quickReplies = [
@@ -22,9 +22,32 @@ const WhatsAppIcon = ({ size = 32 }: { size?: number }) => (
   </svg>
 );
 
+const FIRST_VISIT_KEY = "yb_chat_first_visit_seen";
+
 const WhatsAppChatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState("");
+  const [showFirstVisit, setShowFirstVisit] = useState(false);
+
+  // First-visit popup: appears 2.5s after page load, only once
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      if (localStorage.getItem(FIRST_VISIT_KEY)) return;
+    } catch {}
+    const t = setTimeout(() => setShowFirstVisit(true), 2500);
+    return () => clearTimeout(t);
+  }, []);
+
+  const dismissFirstVisit = () => {
+    setShowFirstVisit(false);
+    try { localStorage.setItem(FIRST_VISIT_KEY, "1"); } catch {}
+  };
+
+  const handleOpen = () => {
+    setIsOpen((v) => !v);
+    if (showFirstVisit) dismissFirstVisit();
+  };
 
   const sendMessage = (text: string) => {
     const msg = encodeURIComponent(text || message);
@@ -44,7 +67,10 @@ const WhatsAppChatbot = () => {
             </div>
             <div className="flex-1">
               <p className="font-bold text-sm">Yasir Bashir</p>
-              <p className="text-xs text-white/70">Usually replies within 1 hour</p>
+              <p className="text-xs text-white/70 flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                Online · usually replies within 1 hour
+              </p>
             </div>
             <button onClick={() => setIsOpen(false)} className="text-white/70 hover:text-white cursor-pointer">
               <X size={20} />
@@ -90,12 +116,40 @@ const WhatsAppChatbot = () => {
         </div>
       )}
 
-      {/* FAB Button, bigger, WhatsApp glyph */}
+      {/* First-visit popup */}
+      {showFirstVisit && !isOpen && (
+        <div className="whatsapp-first-visit">
+          <button
+            onClick={dismissFirstVisit}
+            className="whatsapp-fv-close"
+            aria-label="Close"
+          >
+            <X size={12} />
+          </button>
+          <div className="flex items-center gap-2">
+            <span className="whatsapp-fv-dot" />
+            <p className="whatsapp-fv-status">Online now</p>
+          </div>
+          <p className="whatsapp-fv-msg">👋 Open for chat or call!</p>
+        </div>
+      )}
+
+      {/* FAB Button with online indicator */}
       <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="whatsapp-btn"
+        onClick={handleOpen}
+        className="whatsapp-btn relative"
         aria-label="Chat on WhatsApp"
       >
+        {/* Online dot (always visible when chat closed) */}
+        {!isOpen && (
+          <span className="whatsapp-online-dot">
+            <span className="whatsapp-online-dot-inner" />
+          </span>
+        )}
+        {/* Unread badge — visible on first visit until dismissed */}
+        {showFirstVisit && !isOpen && (
+          <span className="whatsapp-unread-badge">1</span>
+        )}
         {isOpen ? <X size={30} /> : <WhatsAppIcon size={36} />}
       </button>
     </div>

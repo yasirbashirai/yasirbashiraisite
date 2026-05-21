@@ -44,6 +44,12 @@ const Hero = () => (
       ))}
     </div>
 
+    {/* AI-first status pill */}
+    <div className="relative z-10 mb-3 inline-flex items-center gap-1.5 text-[10px] sm:text-xs uppercase tracking-[0.2em] font-heading font-bold text-primary">
+      <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+      AI-First · 2026
+    </div>
+
     {/* Helping Businesses tilted badge */}
     <div className="relative z-10 mb-4 md:mb-5">
       <span className="inline-block -rotate-3 text-sm md:text-lg font-heading font-semibold text-primary bg-primary-soft border border-primary/30 px-4 md:px-5 py-1 md:py-1.5 rounded-full shadow-soft">

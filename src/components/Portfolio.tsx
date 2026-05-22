@@ -54,9 +54,10 @@ const projects = [
     title: "Steer Logistics",
     subtitle: "Freight brokerage platform, USA",
     period: "2023",
-    categories: ["Web Apps"],
+    categories: ["Web Apps", "Logistics"],
     url: "https://steerlogistics.co",
     emoji: "🚛",
+    image: "/portfolio/steer-logistics.png",
     preview: {
       headline: "Full-scale freight brokerage web platform.",
       stats: [
@@ -139,8 +140,9 @@ const projects = [
     subtitle: "Personal site + AI chatbot",
     period: "2024",
     categories: ["Web Apps", "AI Chatbots"],
-    url: "",
+    url: "https://dominiquemcclaney.com",
     emoji: "🤖",
+    image: "/portfolio/dominique-mcclaney.png",
     preview: {
       headline: "AI-powered personal site for a full-stack engineer & Navy veteran.",
       stats: [
@@ -172,7 +174,7 @@ const projects = [
         { metric: "Availability", before: "Business hours only", after: "AI chatbot active 24/7" },
       ],
       tools: ["Custom Web Dev", "AI Chatbot (trained)", "Booking Integration"],
-      liveUrl: "",
+      liveUrl: "https://dominiquemcclaney.com",
     },
   },
   {
@@ -261,6 +263,310 @@ const projects = [
       liveUrl: "",
     },
   },
+  {
+    id: "fwl-logistics",
+    title: "FWL Logistics",
+    subtitle: "Freight brokerage website, USA",
+    period: "2024",
+    categories: ["Web Apps", "Logistics"],
+    url: "https://fwllogistics.com",
+    emoji: "🚚",
+    image: "/portfolio/fwl-logistics.png",
+    preview: {
+      headline: "Clean, conversion-focused site for a US freight broker.",
+      stats: [
+        { value: "B2B", label: "Lead Capture" },
+        { value: "Fast", label: "Load Times" },
+        { value: "Pro", label: "Brand Trust" },
+      ],
+    },
+    detail: {
+      client: "FWL Logistics",
+      industry: "Freight Brokerage / Logistics",
+      location: "USA",
+      challenge:
+        "FWL needed a professional online presence that positioned them as a serious freight broker, not a directory listing. The previous setup didn't capture shipper or carrier leads and didn't communicate service depth.",
+      solution:
+        "Designed a corporate B2B site with clear service architecture, equipment coverage, trust signals and dual lead-capture paths for shippers and carriers.",
+      deliverables: [
+        "Custom corporate B2B design (white / navy / blue palette)",
+        "Service breakdown: dry van, flatbed, reefer, specialty",
+        "Shipper quote request form",
+        "Carrier sign-up flow",
+        "About / Coverage / Industries content pages",
+        "Mobile-responsive, SEO-friendly build",
+      ],
+      results: [
+        { metric: "Online credibility", before: "Generic / no site", after: "Pro corporate site live" },
+        { metric: "Lead capture", before: "None on site", after: "Shipper + carrier forms" },
+        { metric: "Service clarity", before: "Unclear offering", after: "Full equipment + lanes" },
+        { metric: "Mobile UX", before: "Not mobile-ready", after: "Fully responsive" },
+      ],
+      tools: ["Custom Web Dev", "Tailwind", "SEO Content", "Forms"],
+      liveUrl: "https://fwllogistics.com",
+    },
+  },
+  {
+    id: "sfam-logistics",
+    title: "SFam Logistics",
+    subtitle: "Freight brokerage + admin dashboard",
+    period: "2024",
+    categories: ["Web Apps", "Logistics", "CRM Systems"],
+    url: "https://sfamlogistics.com",
+    emoji: "📦",
+    image: "/portfolio/sfam-logistics.png",
+    preview: {
+      headline: "Bold-themed freight brokerage site with a real admin dashboard.",
+      stats: [
+        { value: "12", label: "Public Pages" },
+        { value: "Full", label: "Admin Panel" },
+        { value: "Auth", label: "Login System" },
+      ],
+    },
+    detail: {
+      client: "SFam Logistics LLC",
+      industry: "Freight Brokerage / Logistics",
+      location: "USA",
+      challenge:
+        "SFam wanted to stand out from generic freight broker sites — and needed more than a brochure. They required real operational tooling: quotes, carriers, agents and settings, all managed from one dashboard.",
+      solution:
+        "Built a bold, colorful, futuristic dark-themed marketing site paired with a complete admin dashboard. Login + signup gate access to internal ops modules so the founders can run the business from one place.",
+      deliverables: [
+        "12 public pages with bold gradient/glassmorphism design",
+        "Auth system: login + signup flows",
+        "Admin dashboard: overview, quotes, carriers, agents, settings",
+        "Quote intake form on public site",
+        "Animated orbs, particle effects, neon accents (approved brand)",
+        "Fully responsive, mobile-friendly",
+      ],
+      results: [
+        { metric: "Brand identity", before: "Generic dark template", after: "Distinctive bold futuristic" },
+        { metric: "Quote handling", before: "Email back-and-forth", after: "Form → dashboard pipeline" },
+        { metric: "Internal ops", before: "Spreadsheets", after: "Centralised admin panel" },
+        { metric: "Carrier/agent mgmt", before: "Manual tracking", after: "Dashboard modules" },
+      ],
+      tools: ["React", "Tailwind", "Auth", "Custom Dashboard", "Framer Motion"],
+      liveUrl: "https://sfamlogistics.com",
+    },
+  },
+  {
+    id: "earth-logistics",
+    title: "Earth Logistics Inc",
+    subtitle: "Indiana freight broker, 15-page corporate site",
+    period: "2025",
+    categories: ["Web Apps", "Logistics"],
+    url: "https://earth-logistics-inc.vercel.app",
+    emoji: "🌎",
+    image: "/portfolio/earth-logistics.png",
+    preview: {
+      headline: "Professional 15-page freight broker site built for shipper/carrier leads.",
+      stats: [
+        { value: "15", label: "Pages" },
+        { value: "3", label: "Lead Funnels" },
+        { value: "24/7", label: "Operation Story" },
+      ],
+    },
+    detail: {
+      client: "Earth Logistics Inc (AJ Smith)",
+      industry: "Freight Brokerage / Logistics",
+      location: "Saint John, Indiana, USA",
+      challenge:
+        "Earth Logistics is a DOT-authorized freight broker running 24/7 ops, but had no real digital footprint. They needed a B2B corporate site that captures shippers, recruits carriers AND onboards freight agents — across 10+ equipment types including specialty bulk.",
+      solution:
+        "Designed a clean white/navy/blue corporate site (no dark sci-fi — explicit client requirement). Built 15 pages including dedicated SEO content for every equipment type and three separate lead funnels.",
+      deliverables: [
+        "Home + About + Services hub + Contact + Coverage + Industries",
+        "Service pages: dry van, flatbed, reefer, lowboy, car hauler",
+        "Bulk side: end dump, pneumatic, liquid, hopper bottom, hazmat",
+        "Quote page with heavy-haul calculator",
+        "3 lead funnels: shipper, carrier, freight agent",
+        "FMCSA / DOT / TIA trust badges + carrier count signals",
+        "Inter / Plus Jakarta Sans typography, real American truck imagery",
+      ],
+      results: [
+        { metric: "Digital presence", before: "None", after: "15-page corporate site" },
+        { metric: "Lead paths", before: "Phone only", after: "3 dedicated funnels" },
+        { metric: "Service SEO", before: "No equipment pages", after: "10 equipment landing pages" },
+        { metric: "Brand positioning", before: "Looked like a startup", after: "Looks like a national broker" },
+      ],
+      tools: ["React", "Vite", "Tailwind", "Vercel", "SEO Content"],
+      liveUrl: "https://earth-logistics-inc.vercel.app",
+    },
+  },
+  {
+    id: "arnold-freight",
+    title: "Arnold Freight Group",
+    subtitle: "Freight brokerage website, USA",
+    period: "2024",
+    categories: ["Web Apps", "Logistics"],
+    url: "https://arnoldfreightgroup.com",
+    emoji: "🚛",
+    image: "/portfolio/arnold-freight.png",
+    preview: {
+      headline: "Corporate freight broker site engineered for trust and lead capture.",
+      stats: [
+        { value: "Pro", label: "B2B Design" },
+        { value: "Fast", label: "Lead Forms" },
+        { value: "Trust", label: "Signal Stack" },
+      ],
+    },
+    detail: {
+      client: "Arnold Freight Group",
+      industry: "Freight Brokerage / Logistics",
+      location: "USA",
+      challenge:
+        "Arnold needed an online presence that matched the professionalism of larger national brokers. Without a strong site, shipper RFPs were going to competitors and carrier recruiting was entirely word-of-mouth.",
+      solution:
+        "Built a corporate B2B site emphasising service breadth, lane coverage and operational reliability — with clear CTAs for both shippers and carriers above the fold.",
+      deliverables: [
+        "Custom corporate design tied to brand colors",
+        "Services + equipment pages with SEO copy",
+        "Shipper quote request + carrier sign-up forms",
+        "Trust signal stack: experience, lane coverage, compliance",
+        "Mobile-first responsive build",
+        "On-page SEO for freight-broker keywords",
+      ],
+      results: [
+        { metric: "RFP credibility", before: "Lost vs national brokers", after: "Competes on first impression" },
+        { metric: "Carrier sign-ups", before: "Word-of-mouth only", after: "Online onboarding" },
+        { metric: "Lead intake", before: "Calls only", after: "Forms + calls" },
+        { metric: "Brand polish", before: "DIY look", after: "Agency-grade design" },
+      ],
+      tools: ["Custom Web Dev", "Tailwind", "SEO Content", "Lead Forms"],
+      liveUrl: "https://arnoldfreightgroup.com",
+    },
+  },
+  {
+    id: "sc-commercial",
+    title: "SC Commercial Concepts",
+    subtitle: "Commercial cleaning services website",
+    period: "2025",
+    categories: ["Web Apps"],
+    url: "https://sc-commercialconcepts.com",
+    emoji: "🧼",
+    image: "/portfolio/sc-commercial.png",
+    preview: {
+      headline: "Service-first site for a commercial cleaning operator.",
+      stats: [
+        { value: "Pro", label: "Service Pages" },
+        { value: "Fast", label: "Quote Form" },
+        { value: "Local", label: "SEO Built-in" },
+      ],
+    },
+    detail: {
+      client: "SC Commercial Concepts",
+      industry: "Commercial Cleaning Services",
+      location: "USA",
+      challenge:
+        "SC needed a credible online presence to win commercial cleaning contracts — office buildings, retail, post-construction. The previous site couldn't communicate service depth or capture leads from facility managers.",
+      solution:
+        "Built a service-first website with clear segmentation by client type, fast quote intake and local-SEO structure so the right contracts find them.",
+      deliverables: [
+        "Service breakdown: office, retail, post-construction, recurring",
+        "Quote request form (clean, no friction)",
+        "About / Process / Service Areas pages",
+        "Trust elements: insurance, references, before/after",
+        "Mobile-responsive, fast loading",
+        "Local-SEO friendly URL + meta structure",
+      ],
+      results: [
+        { metric: "Lead intake", before: "Phone only", after: "Online quote form" },
+        { metric: "Service clarity", before: "Generic 'we clean'", after: "Segmented by client type" },
+        { metric: "Online presence", before: "Outdated site", after: "Modern, conversion-built" },
+        { metric: "Mobile experience", before: "Broken", after: "Fully responsive" },
+      ],
+      tools: ["Custom Web Dev", "Tailwind", "Local SEO", "Quote Form"],
+      liveUrl: "https://sc-commercialconcepts.com",
+    },
+  },
+  {
+    id: "sublime-pathways",
+    title: "Sublime Pathways",
+    subtitle: "Wellness, yoga & care center site",
+    period: "2024",
+    categories: ["Web Apps"],
+    url: "https://sublimepathways.com",
+    emoji: "🧘",
+    image: "/portfolio/sublime-pathways.png",
+    preview: {
+      headline: "Calm, premium presence for a wellness & yoga practice.",
+      stats: [
+        { value: "Calm", label: "Brand Feel" },
+        { value: "Easy", label: "Booking UX" },
+        { value: "Pro", label: "Practitioner Story" },
+      ],
+    },
+    detail: {
+      client: "Sublime Pathways",
+      industry: "Wellness / Yoga / Holistic Care",
+      location: "USA",
+      challenge:
+        "Sublime Pathways needed a digital home that felt as grounded as the in-person experience. The site had to communicate practitioner credibility, services, and let clients book or enquire without friction.",
+      solution:
+        "Designed a soft, premium-feeling site with gentle typography and generous whitespace, paired with clear service descriptions and a simple booking/contact pathway.",
+      deliverables: [
+        "Custom calm aesthetic (soft palette, serif headlines)",
+        "Services & offerings pages",
+        "Practitioner / about story",
+        "Booking + contact flow",
+        "Testimonials and trust elements",
+        "Mobile-responsive, fast performance",
+      ],
+      results: [
+        { metric: "Brand experience", before: "Generic wellness template", after: "Distinct, premium feel" },
+        { metric: "Service clarity", before: "Hard to navigate", after: "Clean offering pages" },
+        { metric: "Booking experience", before: "Email-only", after: "Streamlined contact flow" },
+        { metric: "Mobile UX", before: "Clunky", after: "Polished, responsive" },
+      ],
+      tools: ["Custom Web Dev", "Tailwind", "Booking Integration", "Brand Design"],
+      liveUrl: "https://sublimepathways.com",
+    },
+  },
+  {
+    id: "love-care-retreat",
+    title: "Love & Care Retreat",
+    subtitle: "Bilingual healing retreat (EN / RO)",
+    period: "2025",
+    categories: ["Web Apps"],
+    url: "https://loveandcareretreat.com",
+    emoji: "🌸",
+    image: "/portfolio/love-care-retreat.png",
+    preview: {
+      headline: "Feminine, bilingual site for a healing & retreat practitioner.",
+      stats: [
+        { value: "EN/RO", label: "Bilingual" },
+        { value: "5", label: "Pages" },
+        { value: "PDF", label: "Freebie Funnel" },
+      ],
+    },
+    detail: {
+      client: "Daniela — Love & Care Retreat",
+      industry: "Healing / Retreats / Coaching",
+      location: "Romania → International",
+      challenge:
+        "Daniela's previous site was too plain for the depth of work she offers. She needed a feminine, advanced, creative presence — and it had to work for both her English-speaking and Romanian audiences without feeling like two different sites.",
+      solution:
+        "Rebuilt the site from scratch with an EN/RO language switcher, asymmetric feminine layouts, Instagram-style story sections, a freebie PDF lead funnel and contact form — all under one cohesive brand.",
+      deliverables: [
+        "5-page site: Home · About · Offerings · Freebie · Contact",
+        "EN / RO bilingual with header switcher (react-i18next)",
+        "Feminine palette: cream / blush / champagne gold / sage",
+        "Fraunces serif + DM Sans body typography",
+        "Two Instagram-style story sections",
+        "Freebie PDF lead-magnet funnel",
+        "Formspree-powered contact form",
+        "Framer Motion micro-interactions",
+      ],
+      results: [
+        { metric: "Brand feel", before: "Plain & minimal", after: "Feminine, creative, premium" },
+        { metric: "Audience reach", before: "Single language", after: "EN + RO covered" },
+        { metric: "Lead capture", before: "None", after: "Freebie PDF funnel + contact" },
+        { metric: "Mobile UX", before: "Basic", after: "Asymmetric, animated, responsive" },
+      ],
+      tools: ["React 19", "TypeScript", "Vite", "Tailwind", "Framer Motion", "react-i18next", "Formspree"],
+      liveUrl: "https://loveandcareretreat.com",
+    },
+  },
 ];
 
 /* ─────────────────────────────────────────────────────── */
@@ -268,6 +574,7 @@ const projects = [
 const FILTERS = [
   "All Projects",
   "Web Apps",
+  "Logistics",
   "n8n Automation",
   "AI Chatbots",
   "GoHighLevel",

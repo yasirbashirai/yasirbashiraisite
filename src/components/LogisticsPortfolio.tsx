@@ -1,13 +1,54 @@
 import { ArrowUpRight } from "lucide-react";
 
-// Placeholder portfolio items, replace with real screenshots when available
 const portfolioItems = [
-  { name: "SFam Logistics", category: "Freight Brokerage", desc: "Bold dark-theme brokerage website + admin dashboard", color: "from-teal-500 to-emerald-600", live: false, image: null },
-  { name: "Earth Logistics", category: "IN Freight Broker", desc: "15-page corporate B2B site, white/navy palette", color: "from-cyan-500 to-teal-600", live: false, image: null },
-  { name: "Steer Logistics", category: "Trucking Carrier", desc: "Full corporate site + driver recruiting funnel", color: "from-amber-500 to-orange-600", live: false, image: null },
-  { name: "Jon's Material Hauling", category: "Material Hauling", desc: "Local hauling company with online booking", color: "from-emerald-500 to-teal-600", live: false, image: null },
-  { name: "Arnold Freight Co", category: "Freight Carrier", desc: "Modern carrier website with quote system", color: "from-teal-600 to-cyan-600", live: false, image: null },
-  { name: "Fairway Logistics", category: "Logistics Services", desc: "Full-service logistics site with portal access", color: "from-orange-400 to-amber-600", live: false, image: null },
+  {
+    name: "RMG Transport",
+    category: "Vehicle Transport",
+    desc: "Nationwide vehicle transport site + AI lead system, n8n automation & CRM follow-up.",
+    color: "from-teal-500 to-emerald-600",
+    image: "/portfolio/rmg-transport.png",
+    href: "https://rmgtransport.com",
+  },
+  {
+    name: "Steer Logistics",
+    category: "Freight Brokerage",
+    desc: "Full-stack freight brokerage platform: instant quotes, shipper-carrier flow, ops dashboard.",
+    color: "from-cyan-500 to-teal-600",
+    image: "/portfolio/steer-logistics.png",
+    href: "https://steerlogistics.co",
+  },
+  {
+    name: "SFam Logistics",
+    category: "Freight Brokerage",
+    desc: "Bold-themed brokerage site + 12 public pages and a full admin dashboard with auth.",
+    color: "from-amber-500 to-orange-600",
+    image: "/portfolio/sfam-logistics.png",
+    href: "https://sfamlogistics.com",
+  },
+  {
+    name: "Earth Logistics Inc",
+    category: "IN Freight Broker",
+    desc: "15-page corporate B2B site, white/navy palette, 3 lead funnels (shipper/carrier/agent).",
+    color: "from-emerald-500 to-teal-600",
+    image: "/portfolio/earth-logistics.png",
+    href: "https://earth-logistics-inc.vercel.app",
+  },
+  {
+    name: "FWL Logistics",
+    category: "Freight Brokerage",
+    desc: "Clean corporate freight broker site with full service breakdown and dual lead capture.",
+    color: "from-teal-600 to-cyan-600",
+    image: "/portfolio/fwl-logistics.png",
+    href: "https://fwllogistics.com",
+  },
+  {
+    name: "Arnold Freight Group",
+    category: "Freight Brokerage",
+    desc: "Corporate freight broker site engineered for trust, shipper RFPs and carrier sign-ups.",
+    color: "from-orange-400 to-amber-600",
+    image: "/portfolio/arnold-freight.png",
+    href: "https://arnoldfreightgroup.com",
+  },
 ];
 
 type Props = { variant?: "grid" | "list" | "minimal"; sectionNum?: string };
@@ -37,7 +78,9 @@ const LogisticsPortfolio = ({ variant = "grid", sectionNum }: Props) => {
             {portfolioItems.map((item, i) => (
               <a
                 key={i}
-                href="#"
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/40 hover:shadow-card-hover hover:-translate-y-1 transition-all grain-bg"
               >
                 {/* Image / visual */}
@@ -66,7 +109,13 @@ const LogisticsPortfolio = ({ variant = "grid", sectionNum }: Props) => {
         {variant === "list" && (
           <div className="divide-y divide-border border-y border-border">
             {portfolioItems.map((item, i) => (
-              <a key={i} href="#" className="group grid lg:grid-cols-12 gap-6 py-7 hover:bg-secondary/40 transition px-4 -mx-4 rounded">
+              <a
+                key={i}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group grid lg:grid-cols-12 gap-6 py-7 hover:bg-secondary/40 transition px-4 -mx-4 rounded"
+              >
                 <div className="lg:col-span-2 font-mono text-xs text-muted-foreground">{String(i + 1).padStart(2, "0")}</div>
                 <div className="lg:col-span-3">
                   <p className="text-[10px] uppercase tracking-[0.18em] text-primary font-bold mb-1">{item.category}</p>

@@ -103,7 +103,7 @@ const [
   fetchTable("pricing_tiers"),
   fetchTable("site_content", "select=*"), // site_content has no is_published
   fetchTable("about_photos"),
-  fetchTable("seo_pages"),
+  fetchTable("seo_pages", "select=*&is_published=eq.true&order=route.asc"),
   fetchTable("affiliate_links"),
   fetchTable("service_pages", "select=*&order=sort_order.asc"), // include unpublished services for "Coming Soon" badge
 ]);

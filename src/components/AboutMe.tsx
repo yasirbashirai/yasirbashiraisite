@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, Linkedin, Github, Facebook, Youtube, Instagram, MessageCircle } from "lucide-react";
 import AiSparkle from "./AiSparkle";
+import { aboutPhotos } from "@/lib/cms";
 
-const photos = [
+const FALLBACK_PHOTOS = [
   "/about/yasir-1.jpg",
   "/about/yasir-2.jpg",
   "/about/yasir-3.jpg",
   "/about/yasir-4.jpg",
   "/about/yasir-5.jpg",
 ];
+
+const photos = aboutPhotos.length > 0 ? aboutPhotos.map((p) => p.url) : FALLBACK_PHOTOS;
 
 const socials = [
   { icon: Linkedin, href: "https://www.linkedin.com/in/yasirbashiraiengineer/", label: "LinkedIn" },

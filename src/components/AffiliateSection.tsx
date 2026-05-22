@@ -1,7 +1,8 @@
 import { ArrowRight, ExternalLink } from "lucide-react";
 import Section from "./Section";
+import { affiliateLinks } from "@/lib/cms";
 
-const affiliates = [
+const FALLBACK = [
   {
     name: "Hostinger",
     desc: "Best web hosting for your online presence",
@@ -27,6 +28,18 @@ const affiliates = [
     link: "https://gohighlevel.com",
   },
 ];
+
+const affiliates =
+  affiliateLinks.length > 0
+    ? affiliateLinks.map((a) => ({
+        name: a.name,
+        desc: a.description,
+        commission: a.commission_text,
+        short: a.short_text,
+        emoji: a.emoji,
+        link: a.url,
+      }))
+    : FALLBACK;
 
 const AffiliateSection = () => (
   <Section id="affiliates" className="py-14 md:py-16 px-4">

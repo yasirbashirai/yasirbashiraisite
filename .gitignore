@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+# CMS-generated content (regenerated each build)
+src/data/cms.generated.json

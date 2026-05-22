@@ -174,15 +174,36 @@ const LogisticsSolutions = () => {
     );
   }, []);
 
-  const submitAudit = (e: React.FormEvent) => {
+  const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+
+  const submitAudit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Audit request, ${form.name}`);
-    const body = encodeURIComponent(
-      `New audit request from yasirbashir.com/logistics-solutions\n\n` +
-      `Name: ${form.name}\nEmail: ${form.email}\nWebsite: ${form.url}\n` +
-      `Bottleneck: ${form.bottleneck || "(not provided)"}\n`
-    );
-    window.location.href = `mailto:yasirbashirai@gmail.com?subject=${subject}&body=${body}`;
+    setSubmitting(true);
+    try {
+      const { supabase } = await import("@/lib/supabase");
+      await supabase.from("form_submissions").insert({
+        source: "logistics-audit",
+        name: form.name,
+        email: form.email,
+        message: form.bottleneck || null,
+        metadata: { website: form.url },
+        referrer: window.location.href,
+        user_agent: navigator.userAgent,
+      });
+      setSubmitted(true);
+    } catch (err) {
+      // Fall back to mailto if Supabase insert fails
+      const subject = encodeURIComponent(`Audit request, ${form.name}`);
+      const body = encodeURIComponent(
+        `New audit request from yasirbashir.com/logistics-solutions\n\n` +
+          `Name: ${form.name}\nEmail: ${form.email}\nWebsite: ${form.url}\n` +
+          `Bottleneck: ${form.bottleneck || "(not provided)"}\n`,
+      );
+      window.location.href = `mailto:yasirbashirai@gmail.com?subject=${subject}&body=${body}`;
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -689,18 +710,26 @@ const LogisticsSolutions = () => {
                 <p className="text-foreground/75 mb-5 leading-relaxed text-sm">
                   No call. Drop your URL and I&apos;ll record a personal 10-min Loom within 24 hours.
                 </p>
+                {submitted ? (
+                  <div className="bg-primary-soft border border-primary/20 rounded-xl p-6 text-center">
+                    <div className="text-4xl mb-3">✅</div>
+                    <p className="font-heading font-bold text-foreground mb-2">Request received!</p>
+                    <p className="text-sm text-foreground/75">I&apos;ll record your personal Loom audit and email it within 24 hours.</p>
+                  </div>
+                ) : (
                 <form onSubmit={submitAudit} className="space-y-2.5">
                   <input type="text" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Your name" className="w-full bg-secondary border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary transition placeholder:text-muted-foreground" />
                   <input type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="you@company.com" className="w-full bg-secondary border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary transition placeholder:text-muted-foreground" />
                   <input type="url" required value={form.url} onChange={(e) => setForm({ ...form, url: e.target.value })} placeholder="https://yourcompany.com" className="w-full bg-secondary border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary transition placeholder:text-muted-foreground" />
                   <textarea rows={2} value={form.bottleneck} onChange={(e) => setForm({ ...form, bottleneck: e.target.value })} placeholder="Biggest bottleneck right now? (optional)" className="w-full bg-secondary border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary transition resize-none placeholder:text-muted-foreground" />
-                  <button type="submit" className="hero-cta-primary inline-block w-full">
+                  <button type="submit" disabled={submitting} className="hero-cta-primary inline-block w-full disabled:opacity-60">
                     <span className="hero-cta-inner justify-center w-full">
-                      Send audit request
+                      {submitting ? "Sending…" : "Send audit request"}
                       <ArrowRight className="w-4 h-4 btn-icon" />
                     </span>
                   </button>
                 </form>
+                )}
               </div>
             </div>
 

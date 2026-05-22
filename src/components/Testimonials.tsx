@@ -1,6 +1,7 @@
 import Section from "./Section";
+import { testimonials as cmsTestimonials } from "@/lib/cms";
 
-const testimonials = [
+const FALLBACK = [
   { name: "James R.", role: "Moving Company Owner", platform: "Fiverr", text: "Yasir automated our entire lead follow-up. We went from missing 60% of inquiries to booking every single one automatically. ROI in the first week." },
   { name: "Sarah M.", role: "Med Spa Owner", platform: "Upwork", text: "Best investment we made. Yasir built our entire CRM + funnel in days. We're now generating leads while we sleep." },
   { name: "Ahmed K.", role: "E-commerce Owner", platform: "Fiverr", text: "The AI chatbot he built handles our customer support 24/7. Saved us $3K/month in staff costs immediately." },
@@ -9,9 +10,20 @@ const testimonials = [
   { name: "David O.", role: "Transport Company", platform: "Fiverr", text: "The n8n automation he built saves our team 40+ hours every week. Absolutely game-changing." },
 ];
 
-const col1 = [testimonials[0], testimonials[3]];
-const col2 = [testimonials[1], testimonials[4]];
-const col3 = [testimonials[2], testimonials[5]];
+const testimonials =
+  cmsTestimonials.length > 0
+    ? cmsTestimonials.map((t) => ({
+        name: t.name,
+        role: t.role,
+        platform: t.company || "Direct",
+        text: t.quote,
+      }))
+    : FALLBACK;
+
+// Distribute across 3 columns (top + bottom of each column)
+const col1 = [testimonials[0 % testimonials.length], testimonials[3 % testimonials.length]];
+const col2 = [testimonials[1 % testimonials.length], testimonials[4 % testimonials.length]];
+const col3 = [testimonials[2 % testimonials.length], testimonials[5 % testimonials.length]];
 
 const Card = ({ t }: { t: typeof testimonials[0] }) => (
   <div className="glass-card p-5 mb-4">

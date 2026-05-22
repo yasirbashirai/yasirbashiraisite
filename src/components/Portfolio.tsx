@@ -1,12 +1,13 @@
 import { useState } from "react";
 import Section from "./Section";
 import { ExternalLink, ChevronUp, ArrowRight } from "lucide-react";
+import { portfolio as cmsProjects } from "@/lib/cms";
 
 /* ─────────────────────────────────────────────────────── */
-/*  PROJECT DATA                                           */
+/*  PROJECT DATA — sourced from CMS at build time           */
 /* ─────────────────────────────────────────────────────── */
 
-const projects = [
+const projects = cmsProjects.length > 0 ? cmsProjects : ([
   {
     id: "rmg-transport",
     title: "RMG Transport",
@@ -529,7 +530,7 @@ const projects = [
       liveUrl: "https://loveandcareretreat.com",
     },
   },
-];
+] as unknown as typeof cmsProjects);
 
 /* ─────────────────────────────────────────────────────── */
 

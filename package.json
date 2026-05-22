@@ -5,12 +5,17 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "predev": "node scripts/fetch-cms.mjs",
     "build": "vite build",
+    "prebuild": "node scripts/fetch-cms.mjs",
     "build:dev": "vite build --mode development",
+    "prebuild:dev": "node scripts/fetch-cms.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "cms:sync": "node scripts/fetch-cms.mjs",
+    "cms:seed": "node scripts/seed-cms.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

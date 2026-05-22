@@ -1,8 +1,9 @@
 import { ArrowRight, Check, Sparkles } from "lucide-react";
 import Section from "./Section";
 import AiSparkle from "./AiSparkle";
+import { pricing as cmsPricing } from "@/lib/cms";
 
-const packages = [
+const FALLBACK = [
   {
     name: "AI Starter System",
     tagline: "Everything you need to start booking calls on autopilot.",
@@ -38,6 +39,19 @@ const packages = [
     highlight: true,
   },
 ];
+
+const packages =
+  cmsPricing.length > 0
+    ? cmsPricing.map((p) => ({
+        name: p.name,
+        tagline: p.tagline,
+        setup: p.setup_price,
+        monthly: p.monthly_price,
+        features: p.features,
+        cta: p.cta_text,
+        highlight: p.is_highlight,
+      }))
+    : FALLBACK;
 
 const Pricing = () => (
   <Section id="pricing" className="py-16 px-4 bg-gradient-to-b from-white via-cream/30 to-white">

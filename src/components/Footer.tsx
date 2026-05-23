@@ -33,9 +33,9 @@ const pageLinks = [
 ];
 
 const platforms: { name: string; logo: string; hideName?: boolean }[] = [
-  { name: "Fiverr", logo: fiverrLogo, hideName: true },
-  { name: "Upwork", logo: upworkLogo, hideName: true },
-  { name: "Payoneer", logo: payoneerLogo, hideName: true },
+  { name: "Fiverr", logo: fiverrLogo },
+  { name: "Upwork", logo: upworkLogo },
+  { name: "Payoneer", logo: payoneerLogo },
   { name: "Wise", logo: wiseLogo, hideName: true },
 ];
 

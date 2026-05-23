@@ -191,6 +191,27 @@ const LogisticsSolutions = () => {
         referrer: window.location.href,
         user_agent: navigator.userAgent,
       });
+
+      // Notify yasirbashirai@gmail.com via Web3Forms (fire-and-forget).
+      // Source of truth is the Supabase row above; email is just the ping.
+      const web3formsKey = import.meta.env.VITE_WEB3FORMS_KEY;
+      if (web3formsKey) {
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            access_key: web3formsKey,
+            subject: `New audit request — ${form.name}`,
+            from_name: form.name,
+            email: form.email,
+            website: form.url || "(not provided)",
+            message: form.bottleneck || "(no message)",
+            source: "yasirbashir.com/logistics-solutions (Loom audit form)",
+            page: window.location.href,
+          }),
+        }).catch((err) => console.error("[web3forms] notify failed:", err));
+      }
+
       setSubmitted(true);
     } catch (err) {
       // Fall back to mailto if Supabase insert fails

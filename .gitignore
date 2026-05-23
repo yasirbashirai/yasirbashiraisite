@@ -26,3 +26,4 @@ dist-ssr
 
 # CMS-generated content (regenerated each build)
 src/data/cms.generated.json
+.vercel

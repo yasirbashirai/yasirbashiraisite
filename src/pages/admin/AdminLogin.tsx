@@ -1,8 +1,8 @@
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useState } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { supabase } from "@/lib/supabase";
 import { useAuth } from "@/lib/admin-auth";
-import { Loader2, Mail, Sparkles } from "lucide-react";
+import { Loader2, Lock, Mail, LogIn } from "lucide-react";
 
 const ALLOWED_EMAIL = "yasirbashirai@gmail.com";
 
@@ -10,14 +10,9 @@ export default function AdminLogin() {
   const { session, loading } = useAuth();
   const location = useLocation();
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [message, setMessage] = useState<{ type: "ok" | "err"; text: string } | null>(null);
-
-  useEffect(() => {
-    if (session) {
-      // already signed in elsewhere
-    }
-  }, [session]);
 
   if (loading) {
     return (
@@ -35,9 +30,8 @@ export default function AdminLogin() {
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    if (!email) return;
+    if (!email || !password) return;
 
-    // Soft client-side guard. Real protection is at Supabase level via RLS.
     if (email.trim().toLowerCase() !== ALLOWED_EMAIL.toLowerCase()) {
       setMessage({
         type: "err",
@@ -48,22 +42,17 @@ export default function AdminLogin() {
 
     setSubmitting(true);
     setMessage(null);
-    const { error } = await supabase.auth.signInWithOtp({
+    const { error } = await supabase.auth.signInWithPassword({
       email: email.trim(),
-      options: {
-        emailRedirectTo: `${window.location.origin}/admin`,
-      },
+      password,
     });
     setSubmitting(false);
 
     if (error) {
       setMessage({ type: "err", text: error.message });
-    } else {
-      setMessage({
-        type: "ok",
-        text: "Check your inbox — magic link sent. Click the link to sign in.",
-      });
     }
+    // On success, useAuth's onAuthStateChange fires, session updates,
+    // the <Navigate /> branch above takes over on next render.
   }
 
   return (
@@ -95,6 +84,25 @@ export default function AdminLogin() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@example.com"
+                  autoComplete="email"
+                  className="w-full pl-10 pr-4 py-3 rounded-lg bg-secondary/50 border border-border focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition"
+                  required
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-xs font-heading font-bold uppercase tracking-wider text-primary mb-2">
+                Password
+              </label>
+              <div className="relative">
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="••••••••"
+                  autoComplete="current-password"
                   className="w-full pl-10 pr-4 py-3 rounded-lg bg-secondary/50 border border-border focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition"
                   required
                 />
@@ -109,12 +117,12 @@ export default function AdminLogin() {
               {submitting ? (
                 <>
                   <Loader2 className="w-4 h-4 animate-spin" />
-                  Sending magic link…
+                  Signing in…
                 </>
               ) : (
                 <>
-                  <Sparkles className="w-4 h-4" />
-                  Send magic link
+                  <LogIn className="w-4 h-4" />
+                  Sign in
                 </>
               )}
             </button>
@@ -131,10 +139,6 @@ export default function AdminLogin() {
               {message.text}
             </div>
           )}
-
-          <p className="text-xs text-center text-muted-foreground mt-6">
-            No password needed. We'll email you a one-click sign-in link.
-          </p>
         </div>
 
         <p className="text-center text-xs text-muted-foreground mt-4">

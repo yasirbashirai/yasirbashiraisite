@@ -32,11 +32,11 @@ const pageLinks = [
   { label: "🧮 ROI Calculator", href: "/calculator" },
 ];
 
-const platforms = [
+const platforms: { name: string; logo: string; hideName?: boolean }[] = [
   { name: "Fiverr", logo: fiverrLogo },
   { name: "Upwork", logo: upworkLogo },
   { name: "Payoneer", logo: payoneerLogo },
-  { name: "Wise", logo: wiseLogo },
+  { name: "Wise", logo: wiseLogo, hideName: true },
 ];
 
 const Footer = () => (
@@ -156,7 +156,9 @@ const Footer = () => (
                 className="bg-white px-3 py-2.5 flex items-center gap-2 rounded-xl shadow-soft"
               >
                 <img src={p.logo} alt={p.name} className="h-5 w-auto object-contain" />
-                <span className="text-sm font-heading font-semibold text-foreground">{p.name}</span>
+                {!p.hideName && (
+                  <span className="text-sm font-heading font-semibold text-foreground">{p.name}</span>
+                )}
               </div>
             ))}
             <div className="bg-white px-3 py-2.5 flex items-center gap-2 rounded-xl shadow-soft">
